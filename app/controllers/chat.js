@@ -13,5 +13,7 @@ module.exports.chat = function(application, request, response) {
 		return;
 	}
 
-	response.render('chat');
+	application.get('io').emit('msgParaCliente', {apelido : dadosForm.apelido, mensagem : ' entrou no chat'});
+
+	response.render('chat', {dadosForm : dadosForm});
 }
